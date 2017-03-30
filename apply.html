@@ -1,0 +1,33 @@
+<div class="applyMain">
+    <form action="" name="applyForm">
+        <p class='appP'>1.加入旺仔俱乐部会员，享受更多福利惊喜</p>
+        <div class='regDiv'>
+            <label for="">手机号：</label>
+            <input id="mobileNumber" class="login" name="mobileNumber" type="text" ng-pattern="/^1[0-9]{10}$/" required onkeyup="if(event.keyCode !=37 && event.keyCode != 39){if (!/^[\d]+$/ig.test(this.value)){this.value='';}}" ng-model='inputName' ng-init='inputName=""'>
+        </div>
+        <div class='regDiv' ng-model='sendCode' ng-init='sendCode=true'>
+            <label for="">验证码：</label>
+            <input id="verificationCode" name="verificationCode" class="check-code2" type="tel" required ng-model='validCode' ng-init='validCode=""'>
+            <span id="registrationCodeCheck" class="check-code-text2" ng-click="sendMessageCode(inputName)">获取验证码</span>
+        </div class='tellWz'>
+        <p class='appP'>2.告诉旺仔你有多喜欢旺旺食品(140字内)</p>
+        <div class='istera'>
+            <textarea ng-model="message" ng-init='message=""' class='textAre' required max-length='140' ng-change='canWrite(message)' ng-keyup="keyChange(message)">{{message|filterEmoji}}</textarea>
+            <p ng-show='full' class='full'>评论字数达到上限咯。</p>
+        </div>
+        <p class='appP noApp'>3.告诉旺仔你的生日，会有意外小惊喜噢！</p>
+        <div class='birTh clearfix'>
+            <span>我的生日：</span>
+            <input type="date" class="form-control" ng-model="birth" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+        </div>
+        <div class="appIntro">
+            <ul id="wrapper_rule">
+                <li class="fuliLi"><img ng-src="images/mask.png" class='wztx'><span>入团福利</span>
+                    <p ng-repeat='fuli in showFuli' class='fuliP'>{{fuli}}</p>
+                </li>
+            </ul>
+        </div>
+        <p class='appSq' ng-click='invalidForm()' ng-show='applyForm.$invalid'>立即申请</p>
+        <p class='appSq' ng-click='uploadForm(message,birth,inputName,validCode)' ng-show='applyForm.$valid'>立即申请</p>
+    </form>
+</div>
