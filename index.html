@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>吃货团</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <!-- css libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/personalCenter.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/loginRegister.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/process.css">
+    <link rel="stylesheet" href="css/ruleScollerBar.css">
+    <link rel="stylesheet" href="css/eatershow.css">
+    <link rel="stylesheet" href="css/sideNav.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css">  -->  
+    <style>
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+    
+    ng\:form {
+        display: block;
+    }
+    </style>
+</head>
+
+<body ng-app="eatApp"  ng-controller='indexCtrl'>
+    <div id='container'>
+        <div ui-view class="mainContainer"></div>
+        <div class="footer">
+            <ul class="footList clearfix">
+                <li class='li1' ng-class='{"selected":selected==1}'><a ui-sref="main">首页</a></li>
+                <li class='li2' ng-class='{"selected":selected==2}'><a ui-sref="findTest">试吃中心</a></li>
+                <li class='li3' ng-class='{"selected":selected==3}'><a ui-sref="readCom">吃货秀</a></li>
+                <li class='li4' ng-class='{"selected":selected==4}'><a ui-sref="personal">个人中心</a></li>
+            </ul>
+        </div>
+    </div>
+    <div ng-controller="memberCtrl" id="memberDiv" ng-cloak>
+    </div>
+    <div id="mask-loading" class="mask-loading" ng-show="loading" style="background-color: rgba(0, 0, 0, 0.17);">
+        <div class="loading"> <span></span> <span></span> <span></span> <span></span> <span></span></div>
+    </div>
+    <div class="alert-mask" ng-click="closeMask()" ng-show='hasMM'></div>
+</body>
+<!-- Load libraries -->
+<script src="js/libs/angular.min.js"></script>
+<script src='js/libs/angular-locale_es.js'></script>
+<script src="js/libs/angular-ui-router.min.js"></script>
+<script src="js/libs/angular-animate.min.js"></script>
+<script src="js/libs/ocLazyLoad.min.js"></script>
+<script src="../js/sha1.js"></script>
+<script src="../js/jweixin-1.1.0.js"></script>
+<script src='js/libs/iscroll.js'></script>
+<script src='js/libs/angular-touch.min.js'></script>
+<script src='js/libs/ui-bootstrap-tpls.min.js'></script>
+<script src='js/libs/lrz.all.bundle.js'></script>
+<!-- my js -->
+<script src='js/app.js'></script>
+<script src='js/controllers/address.js'></script>
+<script src='js/controllers/gold.js'></script>
+<script src='js/controllers/findEatCtrl.js'></script>
+<script src='js/controllers/personalCtrl.js'></script>
+<script src='js/controllers/comment.js'></script>
+<script src='js/controllers/memberCtrl.js'></script>
+<script src='js/directives/directive.js'></script>
+<script src='js/services/httpService.js'></script>
+<script src='js/services/memberService.js'></script>
+<script src='js/services/wxShare.js'></script>
+
+</html>
